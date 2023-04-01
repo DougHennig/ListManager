@@ -39,6 +39,8 @@ ListManagerComboBox has the following properties:
 | AllowTyping     | .T. to allow the user to type a non-list value, .F. to only allow selection from the list (the default). This is ignored if BoundToID is .T. since a value typed by the user doesn't have an ID and isn't added to the list.|
 | BoundToID       | .T. to bind the control to the ID of the list item (the default), .F. to bind to the value. For example, if a list item has an ID of 25 and a Value of "Business", setting BoundToID to .T. would store 25 to the control source, while setting it to .F. would store "Business".|
 | ControlSource   | Set this to the data source as you would with any control. If you leave this blank, you'll have to assign a value to Value, usually in Refresh, and write the value somewhere, usually in AnyChange.|
+| FontName        | The font name (default = Segoe UI).|
+| FontSize        | The font size (default = 9).|
 | ID              | The ID of the selected item.|
 | ListType        | Set this to the Type of list this control is for. For example, if the records in the list table for countries all have Type set to "Country", set Type for the control to "Country".|
 | ParentID        | Set this to the ParentID for the items to display. This is often done in the AnyChange method of a related control. For example, suppose the list table contains countries and regions in each country. The ParentID column for the region records would contain the ID for the country the region belongs to. In the AnyChange method of a control to select country, set the ParentID of the control to select region to the selected ID, using code such as `Thisform.cboRegion.ParentID = This.ID`.|
@@ -55,6 +57,8 @@ ListManagerComboTree has the following properties:
 |-----------------|------------|
 | AllowEdit       | .T. to show the Edit button, .F. to hide it. Clicking this button displays a dialog (the ListManagerEditForm class) in which the user can add, edit, and remove list items.|
 | ControlSource   | Set this to the data source as you would with any control. If you leave this blank, you'll have to assign a value to Value, usually in Refresh, and write the value somewhere, usually in AnyChange.|
+| FontName        | The font name (default = Segoe UI).|
+| FontSize        | The font size (default = 9).|
 | ListType        | Set this to the Type of list this control is for. For example, if the records in the list table for countries all have Type set to "Country", set Type for the control to "Country".|
 | TypeDescription | The description for the type. This is used in the caption of the edit dialog. For example, for a control to select country, set TypeDescription to "Country".|
 | UseAbbreviation | .T. to concatenate the abbreviations of the selected items for Value, .F. to concatenate the values of the selected items (the default). Since concatenated values can get quite long, abbreviations may be more useful.|

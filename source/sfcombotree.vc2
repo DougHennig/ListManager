@@ -20,6 +20,8 @@ DEFINE CLASS sfcombotree AS sfcontainer OF "sfctrls.vcx"
 		*m: loadtree		&& Loads the TreeView
 		*m: opencontrol		&& Opens the control
 		*p: cloadingnodetext		&& The text for a "loading" child node
+		*p: fontname		&& The font name
+		*p: fontsize		&& The font size
 		*p: lchanged		&& .T. if the user selected a different value
 		*p: lcloseonclick		&& .T. to close the control when an item in the TreeView is clicked
 		*p: lcloseondblclick		&& .T. to close the control when an item in the TreeView is double-clicked
@@ -37,6 +39,8 @@ DEFINE CLASS sfcombotree AS sfcontainer OF "sfctrls.vcx"
 
 	Anchor = 10
 	cloadingnodetext = Loading...		&& The text for a "loading" child node
+	fontname = Segoe UI		&& The font name
+	fontsize = 9		&& The font size
 	Height = 24
 	lchanged = .F.		&& .T. if the user selected a different value
 	lcloseondblclick = .F.		&& .T. to close the control when an item in the TreeView is double-clicked
@@ -84,6 +88,8 @@ DEFINE CLASS sfcombotree AS sfcontainer OF "sfctrls.vcx"
 		<memberdata name="itemselected" display="ItemSelected"/>
 		<memberdata name="nforminitialheight" display="nFormInitialHeight"/>
 		<memberdata name="cloadingnodetext" display="cLoadingNodeText"/>
+		<memberdata name="fontname" display="FontName"/>
+		<memberdata name="fontsize" display="FontSize"/>
 		</VFPData>
 
 	ADD OBJECT 'cboCombo' AS sfcombobox WITH ;
@@ -102,7 +108,7 @@ DEFINE CLASS sfcombotree AS sfcontainer OF "sfctrls.vcx"
 		Name = "oTree", ;
 		Top = 29, ;
 		Width = 166
-		*< END OBJECT: BaseClass="olecontrol" OLEObject="c:\windows\syswow64\mscomctl.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7///8EAAAA/v///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDsKpC0YdkBAwAAAIACAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAACcBAAAAAAAACAAAAAIAAAD+////BAAAAAUAAAAGAAAABwAAAP7///8JAAAA/v////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+2kEHHiYXREbFqAMDwKDYoIUM0EggAAAAoEQAA/BEAALE8wWoBAAYAIgAAAD0AAAAJAQAADAAAAAEAAAAB782rXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5MzY4MjY1RS04NUZFLTExZDEtOEJFMy0wMDAwRjg3NTREQTEAAAAAKNsAAAAAAADg2wAAAAAAAIjcAAAAAAAAkNIAAAAAAAABAACADgAAAEhpZGVTZWxlY3Rpb24ABQAAAEwAAAAADAAAAEluZGVudGF0aW9uABEAAABODQAAAAcAAAAAAAAAAAAkQAoAAABMYWJlbEVkaXQACQAAAEkKAAAAAQAAAAoAAABMaW5lU3R5bGUACQAAAEkKAAAAAQAAAA0AAABNb3VzZVBvaW50ZXIACQAAAEkKAAAAAAAAAA4AAABQYXRoU2VwYXJhdG9yAAoAAABIAAAAAAEAAABcDAAAAE9MRURyYWdNb2RlAAkAAABJCgAAAAAAAAAMAAAAT0xFRHJvcE1vZGUACQAAAEkKAAAAAAAAAAsAAABBcHBlYXJhbmNlAAkAAABJCgAAAAAAAAAMAAAASG90VHJhY2tpbmcABQAAAEwBAAAAAF4PAQAAAAAAnA4BAAAAAADkEAEAAAAAAAAABQAIAAAAAgBjAAAAAAAFAACAQOkZAAEAAABcAB/e7L0BAAUAiekZAANS4wuRj84RneMAqgBLuFEBAAAAkAGQXwEABlRhaG9tYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+		*< END OBJECT: BaseClass="olecontrol" OLEObject="c:\windows\syswow64\mscomctl.ocx" Value="0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAEAAAAgAAAAEAAAD+////AAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9/////v////7///8EAAAA/v///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1IAbwBvAHQAIABFAG4AdAByAHkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAUA//////////8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMCF/KXSZNkBAwAAAIACAAAAAAAAAwBPAGwAZQBPAGIAagBlAGMAdABEAGEAdABhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAgEDAAAAAgAAAP////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiwAAAAAAAAADAEEAYwBjAGUAcwBzAE8AYgBqAFMAaQB0AGUARABhAHQAYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJgACAP///////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABcAAAAAAAAAAMAQwBoAGEAbgBnAGUAZABQAHIAbwBwAHMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAIA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAACcBAAAAAAAACAAAAAIAAAD+////BAAAAAUAAAAGAAAABwAAAP7///8JAAAA/v////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+2kEHHiYXREbFqAMDwKDYoIUM0EggAAAAoEQAA/BEAALE8wWoBAAYAIgAAAD0AAAAJAQAADAAAAAEAAAAB782rXAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5MzY4MjY1RS04NUZFLTExZDEtOEJFMy0wMDAwRjg3NTREQTEAAAAAKNsAAAAAAADg2wAAAAAAAIjcAAAAAAAAkNIAAAAAAAABAACADgAAAEhpZGVTZWxlY3Rpb24ABQAAAEwAAAAADAAAAEluZGVudGF0aW9uABEAAABODQAAAAcAAAAAAAAAAAAkQAoAAABMYWJlbEVkaXQACQAAAEkKAAAAAQAAAAoAAABMaW5lU3R5bGUACQAAAEkKAAAAAQAAAA0AAABNb3VzZVBvaW50ZXIACQAAAEkKAAAAAAAAAA4AAABQYXRoU2VwYXJhdG9yAAoAAABIAAAAAAEAAABcDAAAAE9MRURyYWdNb2RlAAkAAABJCgAAAAAAAAAMAAAAT0xFRHJvcE1vZGUACQAAAEkKAAAAAAAAAAsAAABBcHBlYXJhbmNlAAkAAABJCgAAAAAAAAAMAAAASG90VHJhY2tpbmcABQAAAEwBAAAAAF4PAQAAAAAAnA4BAAAAAADkEAEAAAAAAAAABQAIAAAAAgBjAAAAAAAFAACAQOkZAAEAAABcAB/e7L0BAAUAiekZAANS4wuRj84RneMAqgBLuFEBAAAAkAGQXwEABlRhaG9tYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
 
 	ADD OBJECT 'shpTreeView' AS sfshape WITH ;
 		Height = 176, ;
@@ -114,7 +120,65 @@ DEFINE CLASS sfcombotree AS sfcontainer OF "sfctrls.vcx"
 		*< END OBJECT: ClassLib="sfctrls.vcx" BaseClass="shape" />
 	
 	PROCEDURE about
-		*** TODO: fill this with details plus link to article on my web site about it.
+		*==============================================================================
+		* Class:						SFComboTree
+		* Based On:						SFContainer
+		* Purpose:						Combo box with TreeView for hierarchical data
+		*									or multi-select with checkboxes
+		* Author:						Doug Hennig
+		* Copyright:					(c) 1996-2019 Stonefield Software Inc.
+		* Last revision:				03/07/2019
+		* Include file:					none
+		* Note:							see https://doughennig.com/Papers/Pub/200909dhen.pdf
+		*									for documentation
+		*
+		* Changes in "Based On" class properties:
+		*	Anchor:						10
+		*	Height:						24
+		*	Width:						170
+		*
+		* Changes in "Based On" class methods:
+		*	Init:						sets up the control
+		*	LostFocus:					close the control when we lose focus
+		*
+		* Custom public properties added:
+		*	aParentHeights[1]:			an array containing heights of parent containers
+		*								before opening the control
+		*	cLoadingNodeText:			the text for a "loading" child node
+		*	FontName:					the font name
+		*	FontSize:					the font size
+		*	lChanged:					.T. if the user selected a different value
+		*	lCloseOnClick:				.T. to close the control when an item in the
+		*								TreeView is clicked
+		*	lCloseOnDblClick:			.T. to close the control when an item in the
+		*								TreeView is double-clicked
+		*	lComboTreeOpen:				.T. if the TreeView is displayed
+		*	lInitialized:				.T. if the control has been initialized
+		*	lLoadOnInit:				.T. to load the TreeView from Init
+		*	lMoveToBack:				.T. to set the ZOrder of the control to the
+		*								back when it's closed
+		*	lNoClose:					.T. to not have LostFocus close the control
+		*	nFired:						when cboCombo.DropDown last fired so we can
+		*								handle multiple firing
+		*	nFormInitialHeight:			the form's initial height
+		*	nMouseButton:				the last mouse button pressed by the user
+		*	nOriginalHeight:			the original height of the control
+		*
+		* Custom protected properties added:
+		*	none
+		*
+		* Custom public methods added:
+		*	CloseControl:				closes the control
+		*	ItemSelected:				called when an item is selected and the control
+		*								closed
+		*	LoadExpandedNode:			loads the specified node as it's expanded
+		*	LoadTree:					loads the TreeView
+		*	OpenControl:				opens the control
+		*
+		* Custom protected methods added:
+		*	none
+		*==============================================================================
+		
 	ENDPROC
 
 	PROCEDURE closecontrol		&& Closes the control
@@ -225,6 +289,12 @@ DEFINE CLASS sfcombotree AS sfcontainer OF "sfctrls.vcx"
 			.aParentHeights[1, 2] = .Height
 			.nFormInitialHeight   = Thisform.Height
 			.nSavedAnchor = .Anchor
+		
+		* Set the font.
+		
+			store .FontName to .oTree.Font.Name, .cboCombo.FontName
+			store .FontSize to .oTree.Font.Size, .cboCombo.FontSize
+		
 			.CloseControl()
 			if .lLoadOnInit
 				.LoadTree()
@@ -437,14 +507,6 @@ DEFINE CLASS sfcombotree AS sfcontainer OF "sfctrls.vcx"
 		if toNode.Children > 0 and toNode.Child.Text = This.cLoadingNodeText
 			This.Parent.LoadExpandedNode(toNode)
 		endif toNode.Children > 0 ...
-		
-	ENDPROC
-
-	PROCEDURE oTree.Init
-		* Use the same font and size as the combobox.
-		
-		This.Font.Name = This.Parent.cboCombo.FontName
-		This.Font.Size = This.Parent.cboCombo.FontSize
 		
 	ENDPROC
 

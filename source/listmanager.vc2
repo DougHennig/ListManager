@@ -207,6 +207,8 @@ DEFINE CLASS listmanagercombobox AS sfcontainer OF "sfctrls.vcx"
 		*p: allowtyping		&& .T. to allow the user to type a non-list value
 		*p: boundtoid		&& .T. if we're bound to the ID of the list item or .F. if we're bound to the value
 		*p: controlsource		&& Specifies the source of data to which an object is bound
+		*p: fontname		&& The font name
+		*p: fontsize		&& The font size
 		*p: id		&& The ID of the selected item
 		*p: listtype		&& The type this control is for
 		*p: parentid		&& The parent this control is for
@@ -220,6 +222,8 @@ DEFINE CLASS listmanagercombobox AS sfcontainer OF "sfctrls.vcx"
 	boundtoid = .T.		&& .T. if we're bound to the ID of the list item or .F. if we're bound to the value
 	builder = (addbs(justpath(This.ClassLibrary)) + 'listmanagerbuilder.prg')
 	controlsource = 		&& Specifies the source of data to which an object is bound
+	fontname = Segoe UI		&& The font name
+	fontsize = 9		&& The font size
 	Height = 24
 	id = 0		&& The ID of the selected item
 	listtype = 		&& The type this control is for
@@ -247,6 +251,8 @@ DEFINE CLASS listmanagercombobox AS sfcontainer OF "sfctrls.vcx"
 		<memberdata name="listtype" display="ListType"/>
 		<memberdata name="allowtyping" display="AllowTyping"/>
 		<memberdata name="allowblank" display="AllowBlank"/>
+		<memberdata name="fontname" display="FontName"/>
+		<memberdata name="fontsize" display="FontSize"/>
 		</VFPData>
 
 	ADD OBJECT 'cboCombo' AS sfcombobox WITH ;
@@ -294,6 +300,8 @@ DEFINE CLASS listmanagercombobox AS sfcontainer OF "sfctrls.vcx"
 		*								or .F. if we're bound to the value
 		*	ControlSource:				specifies the source of data to which an object
 		*								is bound
+		*	FontName:					the font name
+		*	FontSize:					the font size
 		*	ID:							the ID of the selected item (Access method)
 		*	ListType:					the type this control is for
 		*	ParentID:					the parent this control is for (Assign method)
@@ -370,13 +378,12 @@ DEFINE CLASS listmanagercombobox AS sfcontainer OF "sfctrls.vcx"
 				.cboCombo.BoundColumn = 1
 				This.cboCombo.BoundTo     = .F.
 			endif .BoundToID
-		
-			.cboCombo.Style = iif(.AllowTyping and not .BoundToID, 0, 2)
-		
-			.AdjustPositions()
-		
+			.cboCombo.Style         = iif(.AllowTyping and not .BoundToID, 0, 2)
+			.cboCombo.FontName      = .FontName
+			.cboCombo.FontSize      = .FontSize
 			.cboCombo.ToolTipText   = .ToolTipText
 			.cboCombo.ControlSource = .ControlSource
+			.AdjustPositions()
 			.Requery()
 		endwith
 		

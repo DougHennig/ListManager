@@ -4,7 +4,6 @@ removeproperty(_vfp, 'oListManager')
 
 * Set the version number in the ListManager class and README.md.
 
-set step on 
 lcVersion = pcVersion + '.' + padl(date() - date(2000,1,1), 5, '0')
 use source\listmanager.vcx
 locate for objname == 'listmanager'
