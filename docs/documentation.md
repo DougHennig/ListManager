@@ -60,7 +60,7 @@ ListManagerComboTree has the following properties:
 | UseAbbreviation | .T. to concatenate the abbreviations of the selected items for Value, .F. to concatenate the values of the selected items (the default). Since concatenated values can get quite long, abbreviations may be more useful.|
 | Value           | The value of the control.|
 
-Note that unlike ListManagerComboBox, ListManagerComboTree doesn't have AllowBlank, BoundToID, ID, or ParentID properties. AllowBlank isn't needed because the user can uncheck all of the items in the list. The others aren't needed because the individual IDs aren't used but instead the value of the control is a comma-limited list of the selected values (for example, "Argentina,Brazil,Columbia").
+Note that unlike ListManagerComboBox, ListManagerComboTree doesn't have AllowBlank, AllowTyping, BoundToID, ID, or ParentID properties. AllowBlank isn't needed because the user can uncheck all of the items in the list. AllowTyping isn't needed because it doesn't make sense to allow the user to type non-list items in this case. The others aren't needed because the individual IDs aren't used but instead the value of the control is a comma-limited list of the selected values (for example, "Argentina,Brazil,Columbia").
 
 ## ListManager Class
 

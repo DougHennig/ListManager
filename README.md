@@ -28,7 +28,7 @@ See the [documentation](docs/documentation.md) for details on using List Manager
 
 ## Releases
 
-Latest release: {Release date as YYYY-MM-DD}, version 1.0.
+Latest release: 2023-04-01, version 1.0.08491
 
 See the [change log](ChangeLog.md) for release information.
 

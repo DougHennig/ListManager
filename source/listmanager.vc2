@@ -14,11 +14,13 @@ DEFINE CLASS listmanager AS sfcustom OF "sfctrls.vcx"
 		*p: calias		&& The alias for the list table
 		*p: clanguage		&& The language to use for localization
 		*p: ctable		&& The name of the list table
+		*p: cversion		&& The version number
 	*</DefinedPropArrayMethod>
 
 	calias = 		&& The alias for the list table
 	clanguage = English		&& The language to use for localization
 	ctable = list.dbf		&& The name of the list table
+	cversion = 1.0.08491		&& The version number
 	Name = "listmanager"
 	_memberdata = <VFPData>
 		<memberdata name="getvaluesfortype" display="GetValuesForType"/>
@@ -26,6 +28,7 @@ DEFINE CLASS listmanager AS sfcustom OF "sfctrls.vcx"
 		<memberdata name="ctable" display="cTable"/>
 		<memberdata name="calias" display="cAlias"/>
 		<memberdata name="clanguage" display="cLanguage"/>
+		<memberdata name="cversion" display="cVersion"/>
 		</VFPData>
 	
 	PROCEDURE about

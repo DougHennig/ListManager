@@ -1,9 +1,9 @@
 # List Manager
 
-{Abbreviated project description}
+List Manager allows users to select pre-determined lookup values from a drop-down list.
 
 ## Release History
 
-### {Release date as YYYY-MM-DD}, Version {Version number}}
+### 2023/04/01, Version 1.0.08491
 
 * Initial release

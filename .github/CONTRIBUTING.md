@@ -16,17 +16,15 @@
 
 - If you added or removed files, update *BuildProcess\InstalledFiles.txt* as necessary.
 
-- Describe the changes at the top of *ChangeLog.md*.
-
 - Update the documentation in the docs folder as necessary.
-
-- Update the release date and version number in *README.md*.
 
 - If you haven't already done so, install VFPX Deployment: choose Check for Updates from the Thor menu, turn on the checkbox for VFPX Deployment, and click Install.
 
 - Start VFP 9 (not VFP Advanced) and CD to the ListManager folder.
 
 - Run the VFPX Deployment tool to create the installation files: choose VFPX Project Deployment from the Thor Tools, Application menu. Alternately, execute ```EXECSCRIPT(_screen.cThorDispatcher, 'Thor_Tool_DeployVFPXProject')```.
+
+- Describe the changes at the top of *ChangeLog.md*. (This is done after using the VFPX Deployment tool because the tool assigns a new version number.) The version number can be obtained from README.md.
 
 - Commit the changes.
 
@@ -35,6 +33,6 @@
 - Create a pull request; ensure the description clearly describes the problem and solution or the enhancement.
 
 ----
-Last changed: {Date as YYYY-MM-DD}
+Last changed: 2023-04-01
 
 ![](../images/vfpxpoweredby_alternative.gif)
