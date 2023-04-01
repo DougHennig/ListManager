@@ -37,6 +37,5 @@ See the [change log](ChangeLog.md) for release information.
 See [How to contribute to List Manager](.github/CONTRIBUTING.md) for details on how to help with this project.
 
 ----
-Last changed: {Date as YYYY-MM-DD}
 
 ![](images/vfpxpoweredby_alternative.gif)
