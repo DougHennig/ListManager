@@ -1,9 +1,9 @@
 # List Manager
 
-List Manager allows users to select pre-determined lookup values from a drop-down list.
+List Manager manages lists of lookup values and provides controls so users can select values from these lists.
 
 ## Release History
 
-### 2023/04/01, Version 1.0.08491
+### 2023-04-02, Version 1.0.08492
 
 * Initial release

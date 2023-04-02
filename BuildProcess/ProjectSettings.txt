@@ -3,4 +3,5 @@ AppID         = ListManager
 Version       = 1.0
 Component     = Yes
 Repository    = https://github.com/DougHennig/ListManager
-Bin2PRGFolder = source
+Bin2PRGFolder = source,demo
+ChangeLog     = ChangeLog.md

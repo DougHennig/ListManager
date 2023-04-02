@@ -3,8 +3,8 @@ lparameters toUpdateObject
 * Set the properties of the passed updater object.
 
 with toUpdateObject
-	.VersionNumber    = '1.0 - 20230401'
-	.AvailableVersion = 'List Manager-1.0-update-20230401'
+	.VersionNumber    = '1.0.08492 - 20230402'
+	.AvailableVersion = 'List Manager-1.0.08492-update-20230402'
 	.Notes            = GetNotes()
 	.RegisterWithThor = GetRegisterWithThor()
 endwith
@@ -15,6 +15,15 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+# List Manager
+
+List Manager manages lists of lookup values and provides controls so users can select values from these lists.
+
+## Release History
+
+### 2023-04-02, Version 1.0.08492
+
+* Initial release
 
 endtext
 return lcNotes

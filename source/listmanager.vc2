@@ -20,7 +20,7 @@ DEFINE CLASS listmanager AS sfcustom OF "sfctrls.vcx"
 	calias = 		&& The alias for the list table
 	clanguage = English		&& The language to use for localization
 	ctable = list.dbf		&& The name of the list table
-	cversion = 1.0.08491		&& The version number
+	cversion = 1.0.08492		&& The version number
 	Name = "listmanager"
 	_memberdata = <VFPData>
 		<memberdata name="getvaluesfortype" display="GetValuesForType"/>
