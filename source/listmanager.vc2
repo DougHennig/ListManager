@@ -838,7 +838,7 @@ DEFINE CLASS listmanagereditform AS sfmodaldialog OF "sfctrls.vcx"
 		* Based On:						SFModalDialog
 		* Purpose:						Form to add, edit, and remove list items
 		* Author:						Doug Hennig
-		* Last revision:				04/01/2023
+		* Last revision:				04/02/2023
 		* Include file:					none
 		*
 		* Changes in "Based On" class properties:
@@ -919,7 +919,7 @@ DEFINE CLASS listmanagereditform AS sfmodaldialog OF "sfctrls.vcx"
 		
 		* Localize the captions.
 		
-		lcFolder  = addbs(justpath(getwordnum(sys(16), 3)))
+		lcFolder  = addbs(justpath(substr(sys(16), at(' ', sys(16), 2) + 1)))
 		lcLibrary = fullpath('SFLocalize.vcx', lcFolder)
 		do case
 			case type('oLocalizer.Name') = 'C'

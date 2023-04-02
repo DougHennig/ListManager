@@ -257,7 +257,7 @@ DEFINE CLASS demo AS sfform OF "..\source\sfctrls.vcx"
 		
 		* Create a ListManager object manually so we can set the path for the list table.
 		
-		lcFolder = addbs(justpath(getwordnum(sys(16), 3)))
+		lcFolder = addbs(justpath(substr(sys(16), at(' ', sys(16), 2) + 1)))
 		addproperty(_vfp, 'oListManager', newobject('ListManager', fullpath('..\source\ListManager.vcx', lcFolder)))
 		_vfp.oListManager.cTable = lcFolder + 'list.dbf'
 		
