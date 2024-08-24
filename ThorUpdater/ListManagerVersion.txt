@@ -3,8 +3,8 @@ lparameters toUpdateObject
 * Set the properties of the passed updater object.
 
 with toUpdateObject
-	.VersionNumber    = '1.0.08492 - 20230402'
-	.AvailableVersion = 'List Manager-1.0.08492-update-20230402'
+	.VersionNumber    = '1.0.09002 - 20240824'
+	.AvailableVersion = 'List Manager-1.0.09002-update-20240824'
 	.Notes            = GetNotes()
 	.RegisterWithThor = GetRegisterWithThor()
 endwith
@@ -20,6 +20,10 @@ text to lcNotes noshow
 List Manager manages lists of lookup values and provides controls so users can select values from these lists.
 
 ## Release History
+
+### 2024-08-24, Version 1.0.09002
+
+* Removed SFSeparatorBar since it isn't used and conflicts with a class of the same name in SFMenu.vcx (OOP Menu project).
 
 ### 2023-04-02, Version 1.0.08492
 
